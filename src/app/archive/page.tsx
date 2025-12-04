@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/posts';
 
-export default function Home() {
+export default function Archive() {
   const posts = getAllPosts();
 
   return (
@@ -19,24 +19,6 @@ export default function Home() {
           </nav>
         </div>
       </header>
-
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-anime-pink/10 to-anime-blue/10 flex flex-col items-center justify-center text-center">
-        <div className="mb-8 relative group">
-          <div className="absolute -inset-1 bg-gradient-to-r from-anime-pink to-anime-blue rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-          <img
-            src="/avatar.jpg"
-            alt="Avatar"
-            className="relative w-32 h-32 rounded-full border-4 border-white shadow-lg object-cover mx-auto transform transition duration-500 hover:scale-110"
-          />
-        </div>
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4 tracking-tight">
-          欢迎来到伊蕾娜的小窝
-        </h1>
-        <p className="text-lg md:text-xl text-gray-500 max-w-2xl">
-          记录生活，分享热爱。保持清新，保持可爱。
-        </p>
-      </section>
 
       {/* Posts Grid */}
       <main className="max-w-5xl mx-auto px-6 py-16">
