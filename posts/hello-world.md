@@ -2,6 +2,7 @@
 title: "我的第一篇二次元博客"
 date: "2025-12-04"
 description: "这是一个使用 Next.js 和 Tailwind CSS 构建的清新风格博客。"
+tags: ["技术", "Next.js"] 
 ---
 
 # 欢迎来到我的博客！

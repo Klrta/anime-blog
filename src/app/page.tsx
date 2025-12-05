@@ -1,5 +1,8 @@
+// 'use client'; // 这一行必须加在文件最最最上面（第一行），因为这个特效需要浏览器运行
+// import Typewriter from 'typewriter-effect';
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/posts';
+import PostCard from '@/components/PostCard';
 
 export default function Home() {
   const posts = getAllPosts();
@@ -30,7 +33,7 @@ export default function Home() {
             className="relative w-32 h-32 rounded-full border-4 border-white shadow-lg object-cover mx-auto transform transition duration-500 hover:scale-110"
           />
         </div>
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4 tracking-tight">
+        <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4 tracking-tight h-20">
           欢迎来到伊蕾娜的小窝
         </h1>
         <p className="text-lg md:text-xl text-gray-500 max-w-2xl">
@@ -42,28 +45,7 @@ export default function Home() {
       <main className="max-w-5xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (
-            <article
-              key={post.id}
-              className="group bg-white rounded-2xl p-6 shadow-lg shadow-anime-pink/20 hover:shadow-anime-pink/40 hover:-translate-y-1 transition-all duration-300 border border-gray-100"
-            >
-              <div className="mb-4">
-                <span className="text-xs font-medium text-anime-blue bg-anime-blue/10 px-2 py-1 rounded-full">
-                  {post.date}
-                </span>
-              </div>
-              <h2 className="text-xl font-bold mb-2 group-hover:text-anime-pink transition-colors">
-                {post.title}
-              </h2>
-              <p className="text-gray-500 text-sm line-clamp-3 mb-4">
-                {post.description || post.content.substring(0, 100)}...
-              </p>
-              <Link
-                href={`/posts/${post.id}`}
-                className="text-sm font-medium text-anime-pink hover:text-anime-blue transition-colors"
-              >
-                阅读更多 →
-              </Link>
-            </article>
+            <PostCard key={post.id} post={post} />
           ))}
         </div>
       </main>

@@ -11,6 +11,7 @@ export interface PostData {
   title: string;
   date: string;
   description?: string;
+  tags?: string[]; // 新增：标签数组，?表示这个属性是可选的
   content: string;
   contentHtml?: string; // 新增：存放转换后的 HTML
   [key: string]: any;
@@ -64,4 +65,21 @@ export async function getPostData(id: string) {
     contentHtml,
     ...(matterResult.data as { title: string; date: string }),
   };
+}
+
+// 新增：根据标签获取文章
+export function getPostsByTag(tag: string): PostData[] {
+  const allPosts = getAllPosts();
+  // 筛选出 tags 数组里包含这个 tag 的文章
+  return allPosts.filter(post=> post.tags && post.tags.includes(tag));
+}
+
+// 新增：获取所有标签列表（为了生成静态页面）
+export function getAllTags(): string[] {
+  const posts = getAllPosts();
+  const tags = new Set<string>();
+  posts.forEach(post=> {
+    post.tags?.forEach(tag=> tags.add(tag));
+  })
+  return Array.from(tags);
 }
