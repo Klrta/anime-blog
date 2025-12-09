@@ -23,3 +23,35 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* 定义滚动动画 */
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%); /* 向上滚动一半的高度 */
+  }
+}
+
+/* 滚动容器 */
+.scrolling-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1; /* 放在最底层 */
+  overflow: hidden;
+  opacity: 0.15; /* 透明度，不要太抢眼 */
+  pointer-events: none; /* 鼠标穿透，不影响点击 */
+}
+
+/* 滚动的内容 */
+.scrolling-content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4列 */
+  gap: 1rem;
+  animation: scroll 60s linear infinite; /* 60秒滚动一次，无限循环 */
+}
