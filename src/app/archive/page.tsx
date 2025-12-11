@@ -9,7 +9,7 @@ export default function Archive() {
     <div className="min-h-screen text-gray-800 dark:text-gray-100 font-sans relative z-10">
       {/* Header */}
       <header className="fixed top-0 w-full z-50 backdrop-blur-md bg-white/30 dark:bg-black/30 border-b border-white/20 dark:border-white/10">
-        <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="text-xl font-bold text-anime-blue tracking-wider">
             AnimeBlog
           </div>
@@ -23,7 +23,7 @@ export default function Archive() {
       </header>
 
       {/* Posts Grid */}
-      <main className="max-w-5xl mx-auto px-6 py-16">
+      <main className="max-w-6xl mx-auto px-6 py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (
             <article
