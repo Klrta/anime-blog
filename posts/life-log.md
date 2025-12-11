@@ -2,7 +2,8 @@
 title: "生命日志"
 date: "2025-12-09"
 description: "这是一个自2020年开始记录的日志"
-tags: ["感想", "日志"] 
+tags: ["感想", "日志"]
+published: false
 ---
 
 生命日志

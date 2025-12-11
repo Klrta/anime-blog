@@ -12,6 +12,7 @@ export interface PostData {
   date: string;
   description?: string;
   tags?: string[]; // 新增：标签数组，?表示这个属性是可选的
+  published?: boolean; // 新增：是否发布，false 则隐藏
   content: string;
   contentHtml?: string; // 新增：存放转换后的 HTML
   [key: string]: any;
@@ -40,7 +41,10 @@ export function getAllPosts(): PostData[] {
     };
   });
 
-  return allPostsData.sort((a, b) => {
+  // 过滤掉 published: false 的文章
+  const publishedPosts = allPostsData.filter((post) => post.published !== false);
+
+  return publishedPosts.sort((a, b) => {
     if (a.date < b.date) {
       return 1;
     } else {
