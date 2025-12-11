@@ -24,7 +24,10 @@ export function getAllPosts(): PostData[] {
   }
 
   const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map((fileName) => {
+  // 只处理 Markdown 文件，忽略子目录（例如 images 文件夹），否则 fs.readFileSync 会报 EISDIR
+  const allPostsData = fileNames
+    .filter((fileName) => fileName.endsWith('.md'))
+    .map((fileName) => {
     const id = fileName.replace(/\.md$/, '');
     const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, 'utf8');

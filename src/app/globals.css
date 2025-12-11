@@ -55,3 +55,14 @@ body {
   gap: 1rem;
   animation: scroll 60s linear infinite; /* 60秒滚动一次，无限循环 */
 }
+
+@layer base {
+  body {
+    @apply bg-anime-cream text-gray-800; /* 默认亮色模式 */
+  }
+  /* 暗黑模式下的覆盖样式 */
+  .dark body {
+    @apply bg-gray-900 text-gray-100;
+    background-image: none; /* 暗黑模式下可能不需要那个明亮的背景图，或者换一张黑色的 */
+  }
+}
