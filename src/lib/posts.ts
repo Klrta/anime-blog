@@ -37,7 +37,7 @@ export function getAllPosts(): PostData[] {
     return {
       id,
       content: matterResult.content,
-      ...(matterResult.data as { title: string; date: string }),
+      ...(matterResult.data as { title: string; date: string; published?: boolean }),
     };
   });
 
