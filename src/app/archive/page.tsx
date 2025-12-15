@@ -11,9 +11,9 @@ export default function Archive() {
       {/* Header */}
       <header className="fixed top-0 w-full z-50 backdrop-blur-md bg-white/30 dark:bg-black/30 border-b border-white/20 dark:border-white/10">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="text-xl font-bold text-anime-blue tracking-wider">
+          <Link href="/" className="text-xl font-bold text-anime-blue tracking-wider hover:text-anime-pink transition-colors">
             AnimeBlog
-          </div>
+          </Link>
           <nav className="flex gap-6 text-sm font-medium text-gray-600 dark:text-gray-300 items-center">
             <Link href="/" className="hover:text-anime-pink transition-colors">首页</Link>
             <Link href="/archive" className="hover:text-anime-pink transition-colors">归档</Link>
